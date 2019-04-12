@@ -1,5 +1,22 @@
 #!/usr/bin/gnuplot
 
+##
+## (C) 2019 Ville Karaila
+##
+
+##
+## Some parameters here
+##
+
+maxtime=28
+targetFG=1.023
+set output 'mead_sg.png'
+
+##
+## Careful below this line
+##
+
+
 set terminal pngcairo
 
 set style line 1 \
@@ -19,9 +36,6 @@ set style line 3 \
 
 set style arrow 1 nohead
 
-maxtime=28
-targetFG=1.023
-
 set xrange [1:maxtime]
 set termoption enhanced
 
@@ -33,8 +47,7 @@ fit g(x) 'sg.dat' via m,n
 
 set xlabel 'Day' 
 set ylabel 'SG' 
-set title 'Mead progress'
-set output 'mead_sg.png'
+set title 'Brew progress'
 
 set arrow 1 from 1,targetFG to maxtime,targetFG nohead dt "." 
 set label 'FG target' at maxtime/2,targetFG
